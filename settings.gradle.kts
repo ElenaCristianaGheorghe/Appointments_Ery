@@ -29,3 +29,5 @@ dependencyResolutionManagement {
 }
 
 include(":composeApp")
+include(":business_logic:appointments_client:api")
+include(":business_logic:appointments_client:impl")
