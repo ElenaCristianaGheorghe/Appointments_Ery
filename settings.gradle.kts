@@ -1,4 +1,4 @@
-rootProject.name = "Appointmets_Ery"
+rootProject.name = "Appt_Ery"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
@@ -29,5 +29,12 @@ dependencyResolutionManagement {
 }
 
 include(":composeApp")
-include(":business_logic:appointments_client:api")
-include(":business_logic:appointments_client:impl")
+include(
+    ":logic:appt_client:api",
+    ":logic:appt_client:impl"
+)
+
+project(":composeApp").projectDir = File("modules/composeApp")
+project(":logic").projectDir = File("modules/logic")
+project(":logic:appt_client:api").projectDir = File("modules/logic/appt-client/api")
+project(":logic:appt_client:impl").projectDir = File("modules/logic/appt-client/impl")

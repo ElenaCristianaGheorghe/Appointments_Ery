@@ -37,7 +37,7 @@ androidx-lifecycle-runtime-compose = { module = "org.jetbrains.androidx.lifecycl
 kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlin-serialization"}
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
-ktor-client-okhttp = { module= "io.ktor:ktor-client-okhtpp", version.ref = "ktor" }
+ktor-client-okhttp = { module= "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-darwin = { module= "io.ktor:ktor-client-darwin", version.ref = "ktor" }
 ktor-serialization = { module = "io.ktor:ktor-client-serialization" , version.ref = "ktor" }
 ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
