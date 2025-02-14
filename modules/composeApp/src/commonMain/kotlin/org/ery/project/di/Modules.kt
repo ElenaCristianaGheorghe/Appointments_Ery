@@ -1,18 +1,18 @@
 package org.ery.project.di
 
+import org.ery.project.service.AppointmentServiceApi
+import org.ery.project.service.AppointmentsServiceImpl
+import org.ery.project.service.ClientServiceApi
+import org.ery.project.service.ClientServiceImpl
+import org.ery.project.service.EmployeeServiceApi
+import org.ery.project.service.EmployeeServiceImpl
+import org.ery.project.service.FacilityBookedServiceImpl
+import org.ery.project.service.FacilityServiceApi
+import org.ery.project.service.FacilityServiceImpl
 import org.koin.core.module.Module
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
-import org.ery.project.appointments_client.api.service.ClientServiceApi
-import org.ery.project.appointments_client.impl.service.AppointmentsServiceImpl
-import org.ery.project.appointments_client.impl.service.ClientServiceImpl
-import org.ery.project.appointments_client.impl.service.EmployeeServiceImpl
-import org.ery.project.appointments_client.impl.service.FacilityBookedServiceImpl
-import org.ery.project.appointments_client.impl.service.FacilityServiceImpl
-import service.AppointmentServiceApi
-import service.EmployeeServiceApi
-import service.FacilityServiceApi
 
 expect val platformModule: Module
 

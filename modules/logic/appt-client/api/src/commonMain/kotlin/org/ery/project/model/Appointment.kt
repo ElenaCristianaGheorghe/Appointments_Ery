@@ -1,4 +1,4 @@
-package org.ery.project.appointments_client.api.model
+package org.ery.project.model
 
 import kotlinx.serialization.Serializable
 import java.text.SimpleDateFormat
