@@ -1,6 +1,6 @@
-package service
+package org.ery.project.service
 
-import org.ery.project.appointments_client.api.model.Employee
+import org.ery.project.model.Employee
 
 interface EmployeeServiceApi {
     suspend fun addEmployee(employee: Employee): Employee?

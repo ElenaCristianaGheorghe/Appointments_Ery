@@ -1,6 +1,6 @@
-package org.ery.project.appointments_client.api.service
+package org.ery.project.service
 
-import org.ery.project.appointments_client.api.model.Client
+import org.ery.project.model.Client
 
 interface ClientServiceApi {
     suspend fun addClient(client: Client): Client?

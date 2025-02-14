@@ -1,6 +1,6 @@
-package service
+package org.ery.project.service
 
-import org.ery.project.appointments_client.api.model.FacilityBooked
+import org.ery.project.model.FacilityBooked
 
 interface FacilityBookedAServiceApi {
     suspend fun addFacilityBooked(facilityBooked: FacilityBooked): FacilityBooked?

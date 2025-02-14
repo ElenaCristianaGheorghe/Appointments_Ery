@@ -1,6 +1,6 @@
-package service
+package org.ery.project.service
 
-import org.ery.project.appointments_client.api.model.Facility
+import org.ery.project.model.Facility
 
 interface FacilityServiceApi {
     suspend fun addFacility(facility: Facility): Facility?

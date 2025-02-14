@@ -1,4 +1,4 @@
-package org.ery.project.appointments_client.api
+package org.ery.project
 
 object AppointmentsHttpRoutes {
     const val BASE_URL = "http://localhost:8080"

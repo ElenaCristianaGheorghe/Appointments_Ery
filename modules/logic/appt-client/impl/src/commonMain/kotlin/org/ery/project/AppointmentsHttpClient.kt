@@ -1,4 +1,4 @@
-package org.ery.project.appointments_client.impl
+package org.ery.project
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.HttpClientEngine

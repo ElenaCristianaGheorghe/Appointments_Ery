@@ -1,7 +1,7 @@
-package service
+package org.ery.project.service
 
-import org.ery.project.appointments_client.api.model.Appointment
-import org.ery.project.appointments_client.api.model.AppointmentInfo
+import org.ery.project.model.Appointment
+import org.ery.project.model.AppointmentInfo
 
 interface AppointmentServiceApi {
     suspend fun addAppointment(appointment: Appointment): Appointment?

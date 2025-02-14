@@ -1,4 +1,4 @@
-package org.ery.project.appointments_client.impl.service
+package org.ery.project.service
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -13,9 +13,8 @@ import io.ktor.client.request.put
 import io.ktor.client.request.setBody
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
-import org.ery.project.appointments_client.api.AppointmentsHttpRoutes
-import org.ery.project.appointments_client.api.model.Facility
-import service.FacilityServiceApi
+import org.ery.project.AppointmentsHttpRoutes
+import org.ery.project.model.Facility
 
 class FacilityServiceImpl (private val ktorClient: HttpClient) : FacilityServiceApi {
     override suspend fun addFacility(facility: Facility): Facility? {
