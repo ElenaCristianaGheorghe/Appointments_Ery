@@ -1,0 +1,7 @@
+/.gradle/
+/.idea/
+/.kotlin/
+/build/
+/modules/composeApp/build/
+/.gradle/8.9/
+/.gradle/buildOutputCleanup/

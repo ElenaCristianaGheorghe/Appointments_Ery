@@ -21,7 +21,7 @@ public class RootProjectAccessor extends TypeSafeProjectDependencyFactory {
     /**
      * Creates a project dependency on the project at path ":"
      */
-    public AppointmetsEryProjectDependency getAppointmetsEry() { return new AppointmetsEryProjectDependency(getFactory(), create(":")); }
+    public ApptEryProjectDependency getApptEry() { return new ApptEryProjectDependency(getFactory(), create(":")); }
 
     /**
      * Creates a project dependency on the project at path ":composeApp"
