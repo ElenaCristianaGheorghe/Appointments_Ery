@@ -33,8 +33,10 @@ include(
     ":logic:appt_client:api",
     ":logic:appt_client:impl"
 )
+include(":utils")
 
 project(":composeApp").projectDir = File("modules/composeApp")
 project(":logic").projectDir = File("modules/logic")
 project(":logic:appt_client:api").projectDir = File("modules/logic/appt-client/api")
 project(":logic:appt_client:impl").projectDir = File("modules/logic/appt-client/impl")
+project(":utils").projectDir = File("modules/utils")

@@ -45,6 +45,7 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+            implementation(libs.kotlin.datetime)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.ktor.core)
@@ -60,6 +61,7 @@ kotlin {
 
             implementation(project(":logic:appt_client:api"))
             implementation(project(":logic:appt_client:impl"))
+            implementation(project(":utils"))
         }
         nativeMain.dependencies {
             implementation(libs.ktor.client.darwin)
