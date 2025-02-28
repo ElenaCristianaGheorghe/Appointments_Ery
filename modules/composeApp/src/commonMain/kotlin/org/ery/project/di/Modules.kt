@@ -9,8 +9,10 @@ import org.ery.project.service.EmployeeServiceImpl
 import org.ery.project.service.FacilityBookedServiceImpl
 import org.ery.project.service.FacilityServiceApi
 import org.ery.project.service.FacilityServiceImpl
+import org.ery.project.viewmodels.CalendarViewModel
 import org.koin.core.module.Module
 import org.koin.core.module.dsl.singleOf
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
@@ -22,4 +24,7 @@ val sharedModule = module {
     singleOf(::EmployeeServiceImpl).bind<EmployeeServiceApi>()
     singleOf(::FacilityBookedServiceImpl).bind<FacilityBookedServiceImpl>()
     singleOf(::FacilityServiceImpl).bind<FacilityServiceApi>()
+
+    //VMs
+    viewModel { CalendarViewModel() }
 }

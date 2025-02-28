@@ -1,4 +1,4 @@
-package org.ery.project
+package org.ery.project.datetime
 
 import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.convert

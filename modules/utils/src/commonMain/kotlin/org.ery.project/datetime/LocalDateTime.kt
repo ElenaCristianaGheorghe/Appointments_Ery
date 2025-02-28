@@ -1,4 +1,4 @@
-package org.ery.project
+package org.ery.project.datetime
 
 import kotlinx.datetime.Clock
 import kotlinx.datetime.LocalDate
