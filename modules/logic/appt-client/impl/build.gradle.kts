@@ -42,6 +42,7 @@ kotlin {
 
             api(libs.koin.core)
             implementation(project(":logic:appt_client:api"))
+            implementation(project(":repo"))
         }
         nativeMain.dependencies {
             implementation(libs.ktor.client.darwin)

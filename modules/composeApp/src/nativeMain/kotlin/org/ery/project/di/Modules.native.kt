@@ -5,6 +5,6 @@ import org.ery.project.AppointmentsHttpClient
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
-actual val platformModule: Module = module {
+actual val platformMainModule: Module = module {
     single { AppointmentsHttpClient(Darwin.create()) }
 }

@@ -1,5 +1,11 @@
 package org.ery.project.di
 
+import org.ery.project.EryDatabase
+import org.ery.project.dao.AppointmentDao
+import org.ery.project.dao.ClientDao
+import org.ery.project.dao.EmployeeDao
+import org.ery.project.dao.FacilityBookedDao
+import org.ery.project.dao.FacilityDao
 import org.ery.project.service.AppointmentServiceApi
 import org.ery.project.service.AppointmentsServiceImpl
 import org.ery.project.service.ClientServiceApi
@@ -16,9 +22,9 @@ import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
-expect val platformModule: Module
+expect val platformMainModule: Module
 
-val sharedModule = module {
+val sharedMainModule = module {
     singleOf(::AppointmentsServiceImpl).bind<AppointmentServiceApi>()
     singleOf(::ClientServiceImpl).bind<ClientServiceApi>()
     singleOf(::EmployeeServiceImpl).bind<EmployeeServiceApi>()
@@ -27,4 +33,10 @@ val sharedModule = module {
 
     //VMs
     viewModel { CalendarViewModel() }
+
+    single<ClientDao> { get<EryDatabase>().clientDao() }
+    single<AppointmentDao> { get<EryDatabase>().appointmentDao() }
+    single<EmployeeDao> { get<EryDatabase>().employeeDao() }
+    single<FacilityDao> { get<EryDatabase>().facilityDao() }
+    single<FacilityBookedDao> { get<EryDatabase>().facilityBookedDao() }
 }

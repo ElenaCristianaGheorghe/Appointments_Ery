@@ -5,6 +5,6 @@ import org.koin.dsl.module
 import io.ktor.client.engine.okhttp.OkHttp
 import org.ery.project.AppointmentsHttpClient
 
-actual val platformModule: Module = module {
+actual val platformMainModule: Module = module {
     single { AppointmentsHttpClient(OkHttp.create()) }
 }

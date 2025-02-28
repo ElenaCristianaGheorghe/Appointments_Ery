@@ -62,6 +62,7 @@ kotlin {
             implementation(project(":logic:appt_client:api"))
             implementation(project(":logic:appt_client:impl"))
             implementation(project(":utils"))
+            implementation(project(":repo"))
         }
         nativeMain.dependencies {
             implementation(libs.ktor.client.darwin)

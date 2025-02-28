@@ -6,6 +6,8 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.jetbrains.kotlin.serialization)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.room)
 }
 
 kotlin {
@@ -21,35 +23,35 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "org.ery.project.appt_client.api"
+            baseName = "TodoApp"
             isStatic = true
+            // Required when using NativeSQLiteDriver
+            linkerOpts.add("-lsqlite3")
         }
     }
 
     sourceSets {
+
         androidMain.dependencies {
             implementation(libs.koin.android)
             implementation(libs.koin.androidx.compose)
-            implementation(libs.ktor.client.okhttp)
         }
         commonMain.dependencies {
-            implementation(libs.ktor.core)
-            implementation(libs.ktor.logging)
+            implementation(libs.room.runtime)
+            implementation(libs.sqlite.bundled)
             implementation(libs.ktor.serialization)
-            implementation(libs.ktor.content.negotiation)
-            implementation(libs.ktor.serialization.json)
-            implementation(project(":repo"))
+            implementation(libs.kotlin.datetime)
+            implementation(project(":utils"))
 
             api(libs.koin.core)
         }
         nativeMain.dependencies {
-            implementation(libs.ktor.client.darwin)
         }
     }
 }
 
 android {
-    namespace = "org.ery.project.appt_client.impl"
+    namespace = "org.ery.project.repo"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
@@ -70,4 +72,15 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+}
+
+dependencies {
+    add("kspAndroid", libs.room.compiler)
+    add("kspIosSimulatorArm64", libs.room.compiler)
+    add("kspIosX64", libs.room.compiler)
+    add("kspIosArm64", libs.room.compiler)
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
 }
