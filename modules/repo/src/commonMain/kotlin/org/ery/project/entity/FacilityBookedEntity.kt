@@ -8,8 +8,8 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "facilities_booked",
     foreignKeys = [
-        ForeignKey(entity = FacilityEntity::class, parentColumns = ["_id"], childColumns = ["service_id"], onDelete = ForeignKey.CASCADE),
-        ForeignKey(entity = AppointmentEntity::class, parentColumns = ["_id"], childColumns = ["appointment_id"], onDelete = ForeignKey.CASCADE)
+        ForeignKey(entity = FacilityEntity::class, parentColumns = ["id"], childColumns = ["service_id"], onDelete = ForeignKey.CASCADE),
+        ForeignKey(entity = AppointmentEntity::class, parentColumns = ["id"], childColumns = ["appointment_id"], onDelete = ForeignKey.CASCADE)
     ]
 )
 data class FacilityBookedEntity(

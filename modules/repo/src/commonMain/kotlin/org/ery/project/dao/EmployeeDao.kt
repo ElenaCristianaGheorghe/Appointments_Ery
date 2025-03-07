@@ -3,18 +3,18 @@ package org.ery.project.dao
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Upsert
-import org.ery.project.model.Employee
+import org.ery.project.entity.EmployeeEntity
 
 @Dao
 interface EmployeeDao {
     @Upsert
-    suspend fun insertEmployee(clients: List<Employee>)
+    suspend fun insertEmployee(clients: List<EmployeeEntity>)
 
     @Query("SELECT * FROM employees")
-    suspend fun getAllClients(): List<Employee>
+    suspend fun getAllClients(): List<EmployeeEntity>
 
     @Query("SELECT * FROM employees WHERE is_synced = 0")
-    suspend fun getUnsyncedEmployees(): List<Employee> // Fetch local changes
+    suspend fun getUnsyncedEmployees(): List<EmployeeEntity> // Fetch local changes
 
     @Query("UPDATE employees SET is_synced = 1 WHERE id IN (:employeeIds)")
     suspend fun markEmployeesAsSynced(employeeIds: List<Int>)

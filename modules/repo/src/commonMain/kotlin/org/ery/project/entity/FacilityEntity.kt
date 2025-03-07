@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "facilities")
 data class FacilityEntity(
-    @PrimaryKey val id :Int = 0,
+    @PrimaryKey val id: Int,
     val name: String,
     val duration: Int,
     val price: Float,

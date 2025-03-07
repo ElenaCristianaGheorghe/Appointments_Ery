@@ -11,8 +11,8 @@ import org.ery.project.datetime.now
 @Entity(
     tableName = "appointments",
     foreignKeys = [
-        ForeignKey(entity = ClientEntity::class, parentColumns = ["_id"], childColumns = ["client_id"], onDelete = ForeignKey.CASCADE),
-        ForeignKey(entity = EmployeeEntity::class, parentColumns = ["_id"], childColumns = ["employee_id"], onDelete = ForeignKey.SET_DEFAULT)
+        ForeignKey(entity = ClientEntity::class, parentColumns = ["id"], childColumns = ["client_id"], onDelete = ForeignKey.CASCADE),
+        ForeignKey(entity = EmployeeEntity::class, parentColumns = ["id"], childColumns = ["employee_id"], onDelete = ForeignKey.SET_DEFAULT)
     ]
 )
 data class AppointmentEntity(
