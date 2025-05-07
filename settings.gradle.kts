@@ -29,16 +29,18 @@ dependencyResolutionManagement {
 }
 
 include(":composeApp")
+include(":core:database")
+include(":core")
 include(
     ":logic:appt_client:api",
     ":logic:appt_client:impl"
 )
 include(":utils")
-include(":repo")
 
+project(":core").projectDir = File("modules/core")
 project(":composeApp").projectDir = File("modules/composeApp")
+project(":core:database").projectDir = File("modules/core/database")
 project(":logic").projectDir = File("modules/logic")
 project(":logic:appt_client:api").projectDir = File("modules/logic/appt-client/api")
 project(":logic:appt_client:impl").projectDir = File("modules/logic/appt-client/impl")
 project(":utils").projectDir = File("modules/utils")
-project(":repo").projectDir = File("modules/repo")
