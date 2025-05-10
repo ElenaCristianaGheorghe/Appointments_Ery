@@ -10,6 +10,4 @@ interface LocalAppointmentDataSource {
     fun loadAppointmentsInfo(): Flow<List<AppointmentInfo>>
     suspend fun upsertAppointment(appointment: Appointment): Result<Long, DataError.Local>
     suspend fun deleteAppointment(appointmentId: Long)
-
-
 }

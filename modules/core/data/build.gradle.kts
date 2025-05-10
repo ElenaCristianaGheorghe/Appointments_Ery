@@ -3,8 +3,6 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.composeMultiplatform)
-    alias(libs.plugins.composeCompiler)
     alias(libs.plugins.jetbrains.kotlin.serialization)
 }
 
@@ -21,8 +19,10 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "org.ery.project.appt_client.impl"
+            baseName = "org.ery.project.core.data"
             isStatic = true
+            // Required when using NativeSQLiteDriver
+            linkerOpts.add("-lsqlite3")
         }
     }
 
@@ -41,8 +41,11 @@ kotlin {
             implementation(libs.ktor.serialization.json)
 
             api(libs.koin.core)
-            implementation(project(":logic:appt_client:api"))
-            implementation(project(":repo"))
+            implementation(libs.koin.compose.viewmodel)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel.navigation)
+
+            implementation(project(":core:domain"))
         }
         nativeMain.dependencies {
             implementation(libs.ktor.client.darwin)
@@ -51,7 +54,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.ery.project.appt_client.impl"
+    namespace = "org.ery.project.core.data"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {

@@ -48,8 +48,6 @@ actual fun formatDateTime(dateTime: LocalDateTime): String {
 }
 
 actual fun formatDate(date: LocalDate): String {
-
-
     val formatter = NSDateFormatter().apply {
         dateFormat = patternDate
         locale = NSLocale.currentLocale

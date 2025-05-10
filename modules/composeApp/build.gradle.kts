@@ -59,11 +59,10 @@ kotlin {
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel.navigation)
 
-            implementation(project(":logic:appt_client:api"))
-            implementation(project(":logic:appt_client:impl"))
             implementation(project(":utils"))
             implementation(project(":core:database"))
             implementation(project(":core:domain"))
+            implementation(project(":core:data"))
         }
         nativeMain.dependencies {
             implementation(libs.ktor.client.darwin)
