@@ -5,5 +5,5 @@ import org.ery.project.core.data.network.HttpClientFactory
 import org.koin.dsl.module
 
 actual val platformCoreDataModule = module {
-    single { HttpClientFactory(OkHttp.create()) }
+    single { HttpClientFactory(OkHttp.create()).build() }
 }

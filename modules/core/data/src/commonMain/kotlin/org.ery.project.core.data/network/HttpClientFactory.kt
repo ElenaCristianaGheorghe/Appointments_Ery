@@ -16,38 +16,37 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
 class HttpClientFactory(private val engine: HttpClientEngine) {
-    val httpClient: HttpClient
-        get(): HttpClient {
-            return HttpClient(engine) {
-                install(WebSockets)
-                install(ContentNegotiation) {
-                    json(
-                        Json {
-                            prettyPrint = true
-                            isLenient = true
-                        }
-                    )
-                }
-
-                install(Logging) {
-                    logger = object : Logger {
-                        override fun log(message: String) {
-                            //  Log.v("Logger Ktor =>", message)
-                        }
-
+    fun build(): HttpClient {
+        return HttpClient(engine) {
+            install(WebSockets)
+            install(ContentNegotiation) {
+                json(
+                    Json {
+                        prettyPrint = true
+                        isLenient = true
                     }
-                    level = LogLevel.ALL
-                }
+                )
+            }
 
-                install(ResponseObserver) {
-                    onResponse { response ->
-                        //Log.d("HTTP status:", "${response.status.value}")
+            install(Logging) {
+                logger = object : Logger {
+                    override fun log(message: String) {
+                        //  Log.v("Logger Ktor =>", message)
                     }
-                }
 
-                install(DefaultRequest) {
-                    header(HttpHeaders.ContentType, ContentType.Application.Json)
+                }
+                level = LogLevel.ALL
+            }
+
+            install(ResponseObserver) {
+                onResponse { response ->
+                    //Log.d("HTTP status:", "${response.status.value}")
                 }
             }
+
+            install(DefaultRequest) {
+                header(HttpHeaders.ContentType, ContentType.Application.Json)
+            }
         }
+    }
 }

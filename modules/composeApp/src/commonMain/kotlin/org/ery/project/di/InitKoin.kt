@@ -1,5 +1,6 @@
 package org.ery.project.di
 
+import org.ery.project.appointments.data.appointment.di.appointmentsDataModule
 import org.ery.project.core.data.di.platformCoreDataModule
 import org.ery.project.core.database.di.databaseModule
 import org.ery.project.core.database.di.platformDatabaseModule
@@ -14,7 +15,8 @@ fun initKoin(config: KoinAppDeclaration? = null) {
             platformMainModule,
             databaseModule,
             platformDatabaseModule,
-            platformCoreDataModule
+            platformCoreDataModule,
+            appointmentsDataModule
         )
     }
 }

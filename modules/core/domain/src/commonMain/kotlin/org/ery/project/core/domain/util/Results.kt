@@ -1,8 +1,8 @@
 package org.ery.project.core.domain.util
 
 sealed interface Result <out D, out E: Error> {
-    data class Success <out D>(val data: D): Result<D, Nothing>
-    data class Error <out E: org.ery.project.core.domain.util.Error>(val error: org.ery.project.core.domain.util.Error): Result<Nothing, E>
+    data class Success <D>(val data: D): Result<D, Nothing>
+    data class Error <E: org.ery.project.core.domain.util.Error>(val error: org.ery.project.core.domain.util.Error): Result<Nothing, E>
 }
 
 inline fun <T, E: Error, R> Result<T, E>.map(map: (T) -> R): Result<R, E> {
@@ -12,7 +12,7 @@ inline fun <T, E: Error, R> Result<T, E>.map(map: (T) -> R): Result<R, E> {
     }
 }
 
-fun <T, E: Error> Result<T, E>.asEmptyDataResult(): EmptyResult<Error> {
+fun <T, E: Error> Result<T, E>.asEmptyDataResult(): EmptyResult<E> {
     return map { }
 }
 

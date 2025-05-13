@@ -46,6 +46,7 @@ kotlin {
             implementation(libs.koin.compose.viewmodel.navigation)
 
             implementation(project(":core:domain"))
+            implementation(project(":core:database"))
         }
         nativeMain.dependencies {
             implementation(libs.ktor.client.darwin)
